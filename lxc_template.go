@@ -31,10 +31,14 @@ lxc.console = none
 lxc.tty = 1
 
 {{if (getHostConfig .).Privileged}}
-lxc.cgroup.devices.allow = a 
+lxc.cgroup.devices.allow = a
 {{else}}
 # no implicit access to devices
 lxc.cgroup.devices.deny = a
+
+# but allow mknod for any device
+lxc.cgroup.devices.allow = c *:* m
+lxc.cgroup.devices.allow = b *:* m
 
 # /dev/null and zero
 lxc.cgroup.devices.allow = c 1:3 rwm
@@ -59,6 +63,9 @@ lxc.cgroup.devices.allow = c 10:200 rwm
 
 # fuse
 #lxc.cgroup.devices.allow = c 10:229 rwm
+
+# kvm
+#lxc.cgroup.devices.allow = c 10:232 rwm
 
 # rtc
 #lxc.cgroup.devices.allow = c 254:0 rwm

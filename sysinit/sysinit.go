@@ -137,7 +137,6 @@ func setupCapabilities(args *DockerInitArgs) error {
 		capability.CAP_SYS_RESOURCE,
 		capability.CAP_SYS_TIME,
 		capability.CAP_SYS_TTY_CONFIG,
-		capability.CAP_MKNOD,
 		capability.CAP_AUDIT_WRITE,
 		capability.CAP_AUDIT_CONTROL,
 		capability.CAP_MAC_OVERRIDE,
